@@ -37,5 +37,5 @@ bits = [
 ]
 
 bits.each do |bit|
-  Bit.find_or_create_by(name: bit)
+  Bit.create(name: bit)
 end
