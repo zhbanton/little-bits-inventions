@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: inventions
+#
+#  id          :integer          not null, primary key
+#  title       :string           not null
+#  description :text             not null
+#  user_name   :string
+#  email       :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Invention < ApplicationRecord
 
   validates :title, :description, presence: true
