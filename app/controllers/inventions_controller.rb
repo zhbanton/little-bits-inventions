@@ -18,7 +18,7 @@ class InventionsController < ApplicationController
   private
 
     def invention_params
-      params.require(:invention).permit(:title, :description, :user_name, :email)
+      params.require(:invention).permit(:title, :description, :user_name, :email, invention_bits_attributes: [:bit_id], invention_materials_attributes: [material_attributes: [:name]])
     end
 
 end

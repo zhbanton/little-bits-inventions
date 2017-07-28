@@ -20,4 +20,7 @@ class Invention < ApplicationRecord
   has_many :invention_materials
   has_many :materials, through: :invention_materials
 
+  accepts_nested_attributes_for :invention_bits
+  accepts_nested_attributes_for :invention_materials
+
 end

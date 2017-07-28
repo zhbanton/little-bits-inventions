@@ -10,7 +10,7 @@
 
 class Material < ApplicationRecord
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 
   has_many :invention_materials
   has_many :inventions, through: :invention_materials

@@ -12,4 +12,12 @@
 class InventionMaterial < ApplicationRecord
   belongs_to :material
   belongs_to :invention
+
+  accepts_nested_attributes_for :material
+
+  def material_attributes=(attributes)
+    material = Material.find_or_create_by(name: attributes[:name])
+    self.material_id = material.id
+  end
+
 end
