@@ -1,4 +1,8 @@
-class NewInvention extends React.Component {
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Select from 'react-select'
+
+export default class NewInvention extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -65,12 +69,27 @@ class NewInvention extends React.Component {
             placeholder='email'
             onChange={this.handleChange} />
 
+          <Select
+            name="form-field-name"
+            value="one"
+            options={[]}
+            onChange={(e) => console.log(e)}
+          />
+
           <input type='submit' />
 
-          <div>Bits...</div>
-          <div>Materials...</div>
         </form>
       </div>
     )
   }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const node = document.getElementById('bits-data')
+  const data = JSON.parse(node.getAttribute('data'))
+
+  ReactDOM.render(
+    <NewInvention bits={data} />,
+    document.body.appendChild(document.createElement('div'))
+  )
+})

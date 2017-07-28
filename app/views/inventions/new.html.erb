@@ -1,1 +1,3 @@
-<%= react_component("NewInvention", { bits: @bits }) %>
+<div id="bits-data" data="<%= @bits.to_json %>"></div>
+
+<%= javascript_pack_tag("NewInvention") %>
