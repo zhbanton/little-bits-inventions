@@ -1,24 +1,23 @@
-# README
+# littleBits Inventions
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Basic Rails and React application that allows a user to create and view littleBits inventions. Ruby 2.4.1 and Rails 5.1.2
 
-Things you may want to cover:
+Live Demo: https://cryptic-mountain-36696.herokuapp.com/
 
-* Ruby version
+## Setup
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+  git clone https://github.com/zhbanton/little-bits-inventions.git
+  cd little-bits-inventions
+  bundle install
+  rake db:migrate
+  
+  // seed the app with some sample data
+  rake db:seed
+  
+  // run the rails server
+  rails s
+  
+  // run the webpack server
+  ./bin/webpack-dev-server 
+```
