@@ -27,10 +27,10 @@ const Invention = (props) => {
         <div className='panel-body'>
           <div className='invention-title'>{title}</div>
           <div className='invention-description'>{description}</div>
-          <p><strong>User:</strong> {user_name}</p>
-          <p><strong>Email:</strong> {email}</p>
-          <p><strong>Bits Used:</strong> {renderInventionComponentPills(bits, 'bit-pill')}</p>
-          <p><strong>Materials Used:</strong> {renderInventionComponentPills(materials, 'material-pill')}</p>
+          <div className='invention-field'><strong>User:</strong> {user_name}</div>
+          <div className='invention-field'><strong>Email:</strong> {email}</div>
+          <div className='invention-field'><strong>Bits Used:</strong> {renderInventionComponentPills(bits, 'bit-pill')}</div>
+          <div className='invention-field'><strong>Materials Used:</strong> {renderInventionComponentPills(materials, 'material-pill')}</div>
         </div>
 
       </div>
