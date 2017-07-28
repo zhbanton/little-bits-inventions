@@ -10,6 +10,8 @@
 #
 
 class InventionMaterial < ApplicationRecord
+  validates :material_id, uniqueness: { scope: :invention_id }
+
   belongs_to :material
   belongs_to :invention
 

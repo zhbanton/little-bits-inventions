@@ -10,6 +10,8 @@
 #
 
 class InventionBit < ApplicationRecord
+  validates :bit_id, uniqueness: { scope: :invention_id }
+
   belongs_to :bit
   belongs_to :invention
 end
