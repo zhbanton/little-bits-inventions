@@ -1,6 +1,7 @@
 class InventionsController < ApplicationController
 
   def index
+    render json: Invention.all
   end
 
   def new
