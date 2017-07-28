@@ -13,7 +13,7 @@
 
 class Invention < ApplicationRecord
 
-  validates :title, :description, presence: true
+  validates :title, :description, :invention_bits, presence: true
 
   has_many :invention_bits
   has_many :bits, through: :invention_bits

@@ -13,7 +13,8 @@ class InventionsController < ApplicationController
   end
 
   def create
-    if invention = Invention.create(invention_params)
+    invention = Invention.new(invention_params)
+    if invention.save
       render json: invention
     else
       render json: invention.errors, status: :unprocessable_entity
