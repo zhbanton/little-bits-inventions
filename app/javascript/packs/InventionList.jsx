@@ -10,7 +10,7 @@ const InventionList = ({inventions}) => {
     )
   })
   return (
-    <table>
+    <table className='table'>
       <thead>
         <tr>
           <th>Title</th>

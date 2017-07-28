@@ -8,9 +8,10 @@ const NewInventionErrors = ({errors}) => {
   })
   const numErrors = Object.keys(errors).length
   return (
-    <div>
-      <div>Your submission resulted in {numErrors} {numErrors > 1 ? 'errors' : 'error'}:</div>
-      <ul>
+    <div className="alert alert-danger">
+      <span className="glyphicon glyphicon-exclamation-sign"></span>
+      <span> Your submission resulted in {numErrors} {numErrors > 1 ? 'errors' : 'error'}:</span>
+      <ul className='new-invention-errors'>
         {errorMessages}
       </ul>
     </div>

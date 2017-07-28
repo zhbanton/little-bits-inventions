@@ -1,0 +1,12 @@
+<nav class="navbar navbar-default base-navbar">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to root_url, class: 'navbar-brand' do %>
+        <%= image_tag 'littlebits-logo.svg', alt: 'littleBits', height: 20 %>
+      <% end %>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <%= link_to 'New', new_invention_path, class: "btn btn-secondary navbar-btn navbar-new-btn" %>
+    </ul>
+  </div>
+</nav>

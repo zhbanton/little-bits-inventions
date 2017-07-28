@@ -1,0 +1,31 @@
+/* bootstrap overrides */
+
+.btn.btn-secondary {
+  background-color: $secondary;
+  border-color: $secondary-dark;
+  color: #fff;
+}
+
+.btn.btn-secondary:visited {
+  color: #fff;
+}
+
+.btn.btn-secondary:focus {
+  background-color: $secondary-dark;
+  border-color: $secondary-x-dark;
+}
+
+.panel-primary {
+  border-color: $primary;
+}
+
+.panel-primary > .panel-heading {
+  background-color: $primary;
+  border-color: $primary;
+}
+
+/* react-select overrides */
+
+.form-group.has-error .Select-control {
+  border-color: #a94442;
+}

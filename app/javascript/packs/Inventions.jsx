@@ -22,9 +22,7 @@ export default class Inventions extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Little Bits Inventions</h1>
-        <a href='/inventions/new'>New</a>
+      <div className="container">
         { this.state.isLoading ? this.renderLoading() : this.renderInventions() }
       </div>
     )
@@ -38,7 +36,10 @@ export default class Inventions extends React.Component {
 
   renderInventions() {
     return (
-      <InventionList inventions={this.state.inventions} />
+      <div className="panel panel-primary">
+        <div className="panel-heading"><strong>My Inventions</strong></div>
+        <InventionList inventions={this.state.inventions} />
+      </div>
     )
   }
 }

@@ -2,15 +2,38 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 const Invention = (props) => {
+  const renderInventionComponentPills = (list, className) => {
+    const pills = list.map(cpt => {
+      return (
+        <span
+          key={cpt.id}
+          className={`invention-component-pill ${className}`}>
+          {cpt.name}
+        </span>
+      )
+    })
+    return (
+      <div className='invention-component-pill-list'>
+        {pills}
+      </div>
+    )
+  }
+
   const { title, description, user_name, email, bits, materials } = props.invention
+
   return (
-    <div>
-      <h1>{title}</h1>
-      <h3>{description}</h3>
-      <div>User: {user_name}</div>
-      <div>Email: {email}</div>
-      <div>Bits: {bits.map(bit => bit.name).join(', ')}</div>
-      <div>Materials: {materials.map(material => material.name).join(', ')}</div>
+    <div className='container'>
+      <div className='panel panel-primary'>
+        <div className='panel-body'>
+          <div className='invention-title'>{title}</div>
+          <div className='invention-description'>{description}</div>
+          <p><strong>User:</strong> {user_name}</p>
+          <p><strong>Email:</strong> {email}</p>
+          <p><strong>Bits Used:</strong> {renderInventionComponentPills(bits, 'bit-pill')}</p>
+          <p><strong>Materials Used:</strong> {renderInventionComponentPills(materials, 'material-pill')}</p>
+        </div>
+
+      </div>
     </div>
   )
 }

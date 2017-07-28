@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Select, { AsyncCreatable } from 'react-select'
+
+import NewInventionInput from './NewInventionInput'
 import NewInventionErrors from './NewInventionErrors'
 
 export default class NewInvention extends React.Component {
@@ -105,10 +107,14 @@ export default class NewInvention extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>New Invention</h2>
-        {Object.keys(this.state.errors).length > 0 && this.renderErrors()}
-        {this.renderForm()}
+      <div className='container'>
+        <div className="panel panel-primary">
+          <div className="panel-heading"><strong>Create New Invention</strong></div>
+          <div className='panel-body'>
+            {Object.keys(this.state.errors).length > 0 && this.renderErrors()}
+            {this.renderForm()}
+          </div>
+        </div>
       </div>
     )
   }
@@ -116,61 +122,73 @@ export default class NewInvention extends React.Component {
   renderForm() {
     return (
       <form onSubmit={this.handleSubmit} >
-        <input
+        <NewInventionInput
+          required
+          label='Title'
           name='title'
           value={this.state.title}
-          placeholder='title'
+          hasError={!!this.state.errors.title}
           onChange={this.handleChange} />
 
-        <input
+        <NewInventionInput
+          required
+          textarea
+          label='Description'
           name='description'
           value={this.state.description}
-          placeholder='description'
+          hasError={!!this.state.errors.description}
           onChange={this.handleChange} />
 
-        <input
+        <div className={`form-group ${this.state.errors.invention_bits && 'has-error'}`}>
+          <label>Bits Used* (must add at least one bit)</label>
+          <Select
+            name='bits'
+            placeholder='Bits'
+            value={this.state.bits}
+            multi={true}
+            options={this.props.bits.map(bit => {
+              return {value: bit.id, label: bit.name}
+            })}
+            onChange={this.handleBitChange} />
+        </div>
+
+        <div className='form-group'>
+          <label>Materials Used</label>
+          <AsyncCreatable
+            name='materials'
+            placeholder='Materials'
+            value={this.state.materials}
+            multi={true}
+            loadOptions={this.handleMaterialAutocomplete}
+            shouldKeyDownEventCreateNewOption={(event) => {
+              return event.keyCode === 32 || event.keyCode === 188
+            }}
+            promptTextCreator={(label) => `${label}`}
+            isValidNewOption={(event) => {
+              return event.label && event.label.trim().length > 0
+            }}
+            isOptionUnique={(options) => {
+              return true
+            }}
+            noResultsText={false}
+            onChange={this.handleMaterialChange} />
+        </div>
+
+        <NewInventionInput
+          label='User Name'
           name='userName'
           value={this.state.userName}
-          placeholder='user name'
+          hasError={!!this.state.errors.user_name}
           onChange={this.handleChange} />
 
-        <input
+        <NewInventionInput
+          label='Email'
           name='email'
           value={this.state.email}
-          placeholder='email'
+          hasError={!!this.state.errors.email}
           onChange={this.handleChange} />
 
-        <Select
-          name='bits'
-          placeholder='bits'
-          value={this.state.bits}
-          multi={true}
-          options={this.props.bits.map(bit => {
-            return {value: bit.id, label: bit.name}
-          })}
-          onChange={this.handleBitChange}
-        />
-
-        <AsyncCreatable
-          name='materials'
-          placeholder='materials'
-          value={this.state.materials}
-          multi={true}
-          loadOptions={this.handleMaterialAutocomplete}
-          shouldKeyDownEventCreateNewOption={(event) => {
-            return event.keyCode === 32 || event.keyCode === 188
-          }}
-          promptTextCreator={(label) => `${label}`}
-          isValidNewOption={(event) => {
-            return event.label && event.label.trim().length > 0
-          }}
-          isOptionUnique={(options) => {
-            return true
-          }}
-          noResultsText={false}
-          onChange={this.handleMaterialChange} />
-
-        <input type='submit' />
+        <input className='btn btn-secondary' type='submit' />
 
       </form>
     )

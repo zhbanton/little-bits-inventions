@@ -1,0 +1,38 @@
+.navbar-new-btn {
+  margin-right: 15px;
+}
+
+.invention-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.invention-description {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.invention-component-pill-list {
+  margin-top: 8px;
+}
+
+.invention-component-pill {
+  padding: 5px 8px;
+  border-radius: 8px;
+  margin-right: 5px;
+  color: #fff;
+  font-size: 12px;
+}
+
+.invention-component-pill.bit-pill {
+  background-color: $primary;
+}
+
+.invention-component-pill.material-pill {
+  background-color: $secondary;
+}
+
+.new-invention-errors {
+  padding: 5px 0 0 20px;
+}
