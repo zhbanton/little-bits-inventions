@@ -43,7 +43,7 @@ export default class NewInvention extends React.Component {
     $.post('/inventions', {
       invention: this.buildInventionAttributes()
     }).done(response => {
-      console.log(response)
+      window.location.href = `/inventions/${response.id}`
     })
   }
 

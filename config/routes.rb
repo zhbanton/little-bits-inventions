@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :inventions, only: [:index, :new, :create]
+  resources :inventions, only: [:index, :show, :new, :create]
 
   root 'home#index'
 

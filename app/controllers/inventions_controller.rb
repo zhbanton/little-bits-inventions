@@ -4,6 +4,10 @@ class InventionsController < ApplicationController
     render json: Invention.all
   end
 
+  def show
+    @invention_json = Invention.find(params[:id]).to_json(include: [:bits, :materials])
+  end
+
   def new
     @bits = Bit.all.map { |bit| { id: bit.id, name: bit.name } }
   end
