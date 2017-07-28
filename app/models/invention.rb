@@ -16,9 +16,9 @@ class Invention < ApplicationRecord
   validates :title, :description, :invention_bits, presence: true
   validates :title, :user_name, :email, length: { maximum: 255 }
 
-  has_many :invention_bits
+  has_many :invention_bits, dependent: :destroy
   has_many :bits, through: :invention_bits
-  has_many :invention_materials
+  has_many :invention_materials, dependent: :destroy
   has_many :materials, through: :invention_materials
 
   accepts_nested_attributes_for :invention_bits
